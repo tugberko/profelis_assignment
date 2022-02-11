@@ -16,7 +16,7 @@ import configparser
 
 
 # This section parses required parameters from external configuration file
-configuration_file = 'conf.ini'
+configuration_file = './conf.ini'
 config = configparser.ConfigParser()
 config.read(configuration_file)
 
@@ -29,7 +29,7 @@ atLeast = config.getint('DEFAULT', 'atLeast')
 # Read the log file line by line
 logfile = 'auth.log'
 df = []
-for line in open(logfile, 'r'):
+for line in open(logfile, 'r', encoding="utf8"):
     df.append(json.loads(line))
 
 
